@@ -1,0 +1,5 @@
+config.cfg
+geckodriver.log
+venv/
+__pycache__/
+*.json
