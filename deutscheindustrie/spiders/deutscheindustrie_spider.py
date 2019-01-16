@@ -35,6 +35,7 @@ class QuotesSpider(scrapy.Spider):
 
     def parse_supplier_subsite(self, response):
         data = {}
+        data['name'] = response.css('#firmenprofil > h1 > span::text').extract_first().strip()
         data['website'] = response.css("#firmenprofil > h4.kontakt.fpurls > div > span > a::text").extract_first()
         data['email'] = response.css("#firmenprofil > h4.kontakt.fpmail.openParent > span > a::text").extract_first()
         data['address'] = response.css("#firmenprofil > div.komm > div.fpadr > h4:nth-child(1) > span::text").extract_first()
